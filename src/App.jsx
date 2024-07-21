@@ -61,12 +61,14 @@ function App() {
     let randomNumber = Math.floor(Math.random() * 10);
     setKey(prevKey => (prevKey - prevKey) + randomNumber);
     setRomanianCount(prevCount => ({...prevCount, isHidden: true}))
+    setEnglishCount(prevCount => ({...prevCount, isHidden: false}))
   }
 
   function randomiseRomanian(){
     let randomNumber = Math.floor(Math.random() * 10);
     setKey(prevKey => (prevKey - prevKey) + randomNumber);
     setEnglishCount(prevCount => ({...prevCount, isHidden: true}))
+    setRomanianCount(prevCount => ({...prevCount, isHidden: false}))
   }
 
   return (
