@@ -57,6 +57,18 @@ function App() {
     console.log(currentKey);
   }
 
+  function randomiseEnglish(){
+    let randomNumber = Math.floor(Math.random() * 10);
+    setKey(prevKey => (prevKey - prevKey) + randomNumber);
+    setRomanianCount(prevCount => ({...prevCount, isHidden: true}))
+  }
+
+  function randomiseRomanian(){
+    let randomNumber = Math.floor(Math.random() * 10);
+    setKey(prevKey => (prevKey - prevKey) + randomNumber);
+    setEnglishCount(prevCount => ({...prevCount, isHidden: true}))
+  }
+
   return (
     <>
       <div id='buttons'>
@@ -64,8 +76,8 @@ function App() {
         <button onClick={incrementCounts}>➡️</button>
         <button onClick={hideEnglish}>Show/Hide English</button>
         <button onClick={hideRomanian}>Show/Hide Romanian</button>
-        <button>Random (English)</button>
-        <button>Random (Romanian)</button>
+        <button onClick={randomiseEnglish}>Random (English)</button>
+        <button onClick={randomiseRomanian}>Random (Romanian)</button>
       </div>
       <div>
         {englishCount.isHidden ? "?" : englishCount[currentKey]}
